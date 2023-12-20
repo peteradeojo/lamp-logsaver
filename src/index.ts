@@ -65,7 +65,9 @@ const fetchLogs = async (skip: number, count: number) => {};
 					console.log(execQuery);
 					const result = await db!.query(execQuery);
 					console.log(result);
+					queries = [];
 					await cache.hdel('log-prewrite:1', ...extracted);
+					extracted = [];
 				}
 
 				db!.destroy();
